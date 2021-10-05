@@ -89,7 +89,7 @@ return 0;
 static osThreadId_t lvgl_tick_task_handle;
 const osThreadAttr_t lvgl_tick_task_attrs  = {
   .name = "lvgl_tick",
-  .stack_size = 1024,
+  .stack_size = 512,
   .priority = (osPriority_t) osPriorityLow1,
 };
 static void lvgl_tick_task()
@@ -103,7 +103,7 @@ static void lvgl_tick_task()
 static osThreadId_t lvgl_task_handle;
 const osThreadAttr_t lvgl_task_attrs  = {
   .name = "lvgl",
-  .stack_size = 4096,
+  .stack_size = 2048,
   .priority = (osPriority_t) osPriorityLow,
 };
 static void lvgl_task()
@@ -122,7 +122,7 @@ static void lvgl_task_init()
 
 static void lv_ex_label(void)
 {
-	static char* github_addr = "";
+	static char* github_addr = "Hotakus/stm32f405_lvgl_example";
 	lv_obj_t * label = lv_label_create(lv_scr_act());
     lv_label_set_recolor(label, true);
     lv_label_set_long_mode(label, LV_LABEL_LONG_SCROLL_CIRCULAR); /*Circular scroll*/
